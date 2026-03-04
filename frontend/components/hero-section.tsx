@@ -58,7 +58,7 @@ export default function HeroSection() {
           </div>
 
           {/* Title with decorative elements */}
-          <div className="relative inline-block mb-8">
+          <div className="relative inline-block mb-4">
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold leading-[1.15] text-balance">
               <span className="text-foreground">معهد </span>
               <span className="text-primary glow-text relative">
@@ -71,6 +71,11 @@ export default function HeroSection() {
               <span className="text-foreground text-[0.6em]">للاستشارات والتدريب</span>
             </h1>
           </div>
+
+          {/* Parent company */}
+          <p className="text-xs sm:text-sm text-muted-foreground/60 mb-8 tracking-wide">
+            شركة الحلول الاستراتيجية الشاملة ش.م.م
+          </p>
 
           {/* Subtitle */}
           <p className="mx-auto max-w-3xl text-lg sm:text-xl lg:text-2xl text-muted-foreground leading-relaxed mb-5 text-balance">

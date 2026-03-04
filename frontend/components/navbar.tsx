@@ -174,8 +174,8 @@ export default function Navbar() {
                 </svg>
               </div>
               <div className="flex flex-col">
-                <span className="text-base font-bold text-primary leading-tight">معهد دونان</span>
-                <span className="text-[10px] text-muted-foreground">للاستشارات والتدريب</span>
+                <span className="text-base font-bold text-primary leading-tight">معهد دونان للاستشارات والتدريب</span>
+                <span className="text-[9px] text-muted-foreground/70 leading-tight">شركة الحلول الاستراتيجية الشاملة ش.م.م</span>
               </div>
             </a>
 

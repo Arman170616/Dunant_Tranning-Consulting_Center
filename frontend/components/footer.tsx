@@ -40,8 +40,8 @@ export default function Footer() {
                 </svg>
               </div>
               <div>
-                <span className="text-lg font-bold text-primary">معهد دونان</span>
-                <p className="text-[10px] text-muted-foreground">للاستشارات والتدريب</p>
+                <span className="text-lg font-bold text-primary">معهد دونان للاستشارات والتدريب</span>
+                <p className="text-[10px] text-muted-foreground/70 mt-0.5">شركة الحلول الاستراتيجية الشاملة ش.م.م</p>
               </div>
             </div>
             <p className="text-sm text-muted-foreground leading-[1.8] max-w-md mb-6">

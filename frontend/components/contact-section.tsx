@@ -166,11 +166,11 @@ export default function ContactSection() {
                   <p className="text-sm text-muted-foreground">سنتواصل معك في أقرب وقت ممكن</p>
                 </div>
               ) : (
-                <form ref={formRef} onSubmit={handleSubmit} className="flex flex-col gap-5">
+                <form ref={formRef} onSubmit={handleSubmit} className="flex flex-col gap-5" translate="no">
                   <div className="grid sm:grid-cols-2 gap-5">
                     <div>
                       <label className="block text-sm font-medium text-foreground mb-2">
-                        الاسم الكامل <span className="text-destructive">*</span>
+                        <span>الاسم الكامل</span> <span className="text-destructive">*</span>
                       </label>
                       <input
                         type="text"
@@ -182,7 +182,7 @@ export default function ContactSection() {
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-foreground mb-2">
-                        البريد الإلكتروني <span className="text-destructive">*</span>
+                        <span>البريد الإلكتروني</span> <span className="text-destructive">*</span>
                       </label>
                       <input
                         type="email"
@@ -197,7 +197,7 @@ export default function ContactSection() {
 
                   <div>
                     <label className="block text-sm font-medium text-foreground mb-2">
-                      الموضوع <span className="text-destructive">*</span>
+                      <span>الموضوع</span> <span className="text-destructive">*</span>
                     </label>
                     <input
                       type="text"
@@ -210,7 +210,7 @@ export default function ContactSection() {
 
                   <div>
                     <label className="block text-sm font-medium text-foreground mb-2">
-                      الرسالة <span className="text-destructive">*</span>
+                      <span>الرسالة</span> <span className="text-destructive">*</span>
                     </label>
                     <textarea
                       name="message"
@@ -231,7 +231,7 @@ export default function ContactSection() {
                     ) : (
                       <Send className="h-4 w-4 transition-transform group-hover:-translate-x-1 group-hover:-translate-y-0.5" />
                     )}
-                    {loading ? "جاري الإرسال..." : "إرسال الرسالة"}
+                    <span>{loading ? "جاري الإرسال..." : "إرسال الرسالة"}</span>
                   </button>
                 </form>
               )}
