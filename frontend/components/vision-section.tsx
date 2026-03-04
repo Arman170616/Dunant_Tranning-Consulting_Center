@@ -22,79 +22,54 @@ export default function VisionSection() {
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {/* Vision Card */}
           <div className="glass-card rounded-3xl p-8 lg:p-10 group hover:scale-[1.02] hover:border-primary/30 transition-all duration-500 relative overflow-hidden">
-            <div className="absolute top-0 left-0 w-32 h-32 bg-gradient-to-br from-primary/10 to-transparent rounded-br-full" />
-            <div className="absolute bottom-0 right-0 w-24 h-24 bg-gradient-to-tl from-primary/5 to-transparent rounded-tl-full" />
+            <div className="absolute top-0 left-0 w-32 h-32 bg-linear-to-br from-primary/10 to-transparent rounded-br-full" />
+            <div className="absolute bottom-0 right-0 w-24 h-24 bg-linear-to-tl from-primary/5 to-transparent rounded-tl-full" />
 
             <div className="relative">
               <div className="flex items-center gap-4 mb-8">
-                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10 border border-primary/20 group-hover:bg-primary/15 transition-all">
+                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10 border border-primary/20 group-hover:bg-primary/15 transition-all shrink-0">
                   <Eye className="h-8 w-8 text-primary" />
                 </div>
                 <div>
+                  <p className="text-xs font-bold text-primary tracking-widest uppercase mb-1">Vision</p>
                   <h3 className="text-2xl font-bold text-foreground">الرؤية</h3>
                   <div className="h-1 w-12 bg-primary/40 rounded-full mt-1" />
                 </div>
               </div>
 
-              <p className="text-muted-foreground leading-[1.9] text-base mb-6">
-                أن يصبح معهد دونان مرجعاً إقليمياً رائداً في منطقة الخليج العربي في مجال القانون الدولي الإنساني.
+              <p className="text-muted-foreground leading-loose text-sm">
+                أن يكون معهد دونان مرجعًا إقليميًا رائدًا في نشر وتعزيز ثقافة القانون الدولي الإنساني، والمساهمة الفاعلة في حماية الإنسان وكرامته أثناء النزاعات المسلحة، وبناء مجتمعات أكثر وعيًا والتزامًا بالمبادئ الإنسانية.
               </p>
-
-              <ul className="space-y-4">
-                {[
-                  "تعزيز ثقافة القانون الدولي الإنساني",
-                  "المساهمة في حماية الكرامة الإنسانية",
-                  "ريادة إقليمية في التدريب والتأهيل",
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3 group/item">
-                    <span className="mt-1.5 h-2.5 w-2.5 rounded-full bg-primary/40 shrink-0 group-hover/item:bg-primary transition-colors" />
-                    <span className="text-sm text-muted-foreground leading-relaxed">{item}</span>
-                  </li>
-                ))}
-              </ul>
             </div>
           </div>
 
           {/* Mission Card */}
-          <div className="glass-card rounded-3xl p-8 lg:p-10 group hover:scale-[1.02] hover:border-[var(--teal)]/30 transition-all duration-500 relative overflow-hidden">
-            <div className="absolute top-0 left-0 w-32 h-32 bg-gradient-to-br from-[var(--teal)]/10 to-transparent rounded-br-full" />
-            <div className="absolute bottom-0 right-0 w-24 h-24 bg-gradient-to-tl from-[var(--teal)]/5 to-transparent rounded-tl-full" />
+          <div className="glass-card rounded-3xl p-8 lg:p-10 group hover:scale-[1.02] hover:border-(--teal)/30 transition-all duration-500 relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-32 h-32 bg-linear-to-br from-(--teal)/10 to-transparent rounded-br-full" />
+            <div className="absolute bottom-0 right-0 w-24 h-24 bg-linear-to-tl from-(--teal)/5 to-transparent rounded-tl-full" />
 
             <div className="relative">
               <div className="flex items-center gap-4 mb-8">
-                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[var(--teal)]/10 border border-[var(--teal)]/20 group-hover:bg-[var(--teal)]/15 transition-all">
-                  <Target className="h-8 w-8 text-[var(--teal)]" />
+                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-(--teal)/10 border border-(--teal)/20 group-hover:bg-(--teal)/15 transition-all shrink-0">
+                  <Target className="h-8 w-8 text-(--teal)" />
                 </div>
                 <div>
+                  <p className="text-xs font-bold text-(--teal) tracking-widest uppercase mb-1">Mission</p>
                   <h3 className="text-2xl font-bold text-foreground">الرسالة</h3>
-                  <div className="h-1 w-12 bg-[var(--teal)]/40 rounded-full mt-1" />
+                  <div className="h-1 w-12 bg-(--teal)/40 rounded-full mt-1" />
                 </div>
               </div>
 
-              <p className="text-muted-foreground leading-[1.9] text-base mb-6">
-                تعزيز القانون الدولي الإنساني من خلال البرامج التدريبية والاستشارات وبناء القدرات.
+              <p className="text-muted-foreground leading-loose text-sm">
+                نشر وتعزيز مبادئ وقواعد القانون الدولي الإنساني من خلال التدريب، والاستشارات، وبناء القدرات، والتعاون مع اللجان الخليجية للقانون الدولي الإنساني والمؤسسات التطبيقية العسكرية والمدنية، بما يسهم في ترسيخ ثقافة احترام الإنسان وحمايته في أوقات النزاعات المسلحة، وبما يخدم القيم الإنسانية البشرية.
               </p>
-
-              <ul className="space-y-4">
-                {[
-                  "تقديم برامج تدريبية متخصصة",
-                  "التعاون مع لجان القانون الدولي الخليجية",
-                  "تعزيز القيم الإنسانية والأخلاقية",
-                  "بناء القدرات المؤسسية والفردية",
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3 group/item">
-                    <span className="mt-1.5 h-2.5 w-2.5 rounded-full bg-[var(--teal)]/40 shrink-0 group-hover/item:bg-[var(--teal)] transition-colors" />
-                    <span className="text-sm text-muted-foreground leading-relaxed">{item}</span>
-                  </li>
-                ))}
-              </ul>
             </div>
           </div>
         </div>
 
         {/* Values Banner */}
         <div className="mt-12 glass-card rounded-3xl p-8 lg:p-10 max-w-5xl mx-auto text-center relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-l from-primary/3 via-transparent to-[var(--teal)]/3" />
+          <div className="absolute inset-0 bg-linear-to-l from-primary/3 via-transparent to-(--teal)/3" />
           <div className="relative">
             <Sparkles className="mx-auto h-8 w-8 text-primary mb-4" />
             <h3 className="text-xl font-bold text-foreground mb-6">قيمنا الجوهرية</h3>

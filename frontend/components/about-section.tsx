@@ -1,6 +1,6 @@
 "use client"
 
-import { Shield, Heart, Scale, Globe, Quote } from "lucide-react"
+import { Shield, Heart, Scale, Globe, Quote, User } from "lucide-react"
 
 const features = [
   {
@@ -28,9 +28,8 @@ const features = [
 export default function AboutSection() {
   return (
     <section id="about" className="relative py-24 lg:py-32 overflow-hidden">
-      {/* Background elements */}
       <div className="absolute top-0 left-0 w-96 h-96 rounded-full bg-primary/5 blur-[120px]" />
-      <div className="absolute bottom-0 right-0 w-80 h-80 rounded-full bg-[var(--teal)]/5 blur-[100px]" />
+      <div className="absolute bottom-0 right-0 w-80 h-80 rounded-full bg-(--teal)/5 blur-[100px]" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
@@ -45,60 +44,101 @@ export default function AboutSection() {
           </p>
         </div>
 
-        {/* Main Content */}
-        <div className="grid lg:grid-cols-2 gap-12 items-start mb-20">
-          {/* Image side */}
-          <div className="relative group">
-            <div className="absolute -inset-3 rounded-3xl bg-gradient-to-br from-primary/15 to-[var(--teal)]/15 blur-2xl opacity-40 group-hover:opacity-60 transition-opacity duration-700" />
-            <div className="relative overflow-hidden rounded-3xl">
-              <img
-                src="/images/about-bg.jpg"
-                alt="معهد دونان للاستشارات والتدريب"
-                className="w-full h-80 lg:h-[480px] object-cover transition-transform duration-700 group-hover:scale-105"
-                crossOrigin="anonymous"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/30 to-transparent" />
-
-              {/* Floating quote card */}
-              <div className="absolute bottom-6 right-6 left-6 glass-card rounded-2xl p-6 border-r-4 border-r-primary/40">
-                <Quote className="h-6 w-6 text-primary/40 mb-2" />
-                <p className="text-sm text-foreground leading-[1.8]">
-                  تأسّس المعهد استجابةً للحاجة الملحّة لنشر الوعي بالقانون الدولي الإنساني في ظل النزاعات المسلحة والأزمات الإنسانية التي تؤثر على المدنيين.
-                </p>
-              </div>
-            </div>
+        {/* Director General's Message */}
+        <div id="director" className="mb-20">
+          <div className="text-center mb-12">
+            <span className="inline-block text-xs font-bold text-primary mb-3 tracking-[0.2em] uppercase">كلمة المدير العام</span>
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-foreground">
+              Director General&apos;s <span className="text-primary">Message</span>
+            </h3>
           </div>
 
-          {/* Text Content */}
-          <div className="flex flex-col gap-6" id="director">
-            {/* Director's Word */}
-            <div className="glass-card rounded-3xl p-8 relative overflow-hidden">
-              <div className="absolute top-0 left-0 w-28 h-28 bg-gradient-to-br from-primary/8 to-transparent rounded-br-full" />
-              <div className="relative">
-                <h3 className="text-xl font-bold text-primary mb-4">كلمة المدير العام</h3>
-                <p className="text-muted-foreground leading-[1.9] mb-4 text-sm">
-                  في ظل ما يشهده العالم من نزاعات مسلحة وحروب وأزمات إنسانية تُخلّف آلاف النازحين واللاجئين، وتُلحق الأذى بالمدنيين وخاصةً النساء والأطفال وكبار السن، جاء تأسيس معهد دونان للاستشارات والتدريب.
-                </p>
-                <p className="text-muted-foreground leading-[1.9] text-sm">
-                  نحن ملتزمون بنشر ثقافة القانون الدولي الإنساني وتعزيز احترام الكرامة الإنسانية من خلال التدريب والتوعية وبناء القدرات في دول مجلس التعاون لدول الخليج العربية.
-                </p>
-              </div>
-            </div>
-
-            {/* Mini Stats */}
-            <div className="grid grid-cols-3 gap-4">
-              {[
-                { value: "+15", label: "سنة خبرة" },
-                { value: "6", label: "دول خليجية" },
-                { value: "+40", label: "شراكة دولية" },
-              ].map((stat, i) => (
-                <div key={i} className="glass-card rounded-2xl p-5 text-center group hover:scale-105 transition-all duration-300">
-                  <div className="text-2xl font-extrabold text-primary mb-1 glow-text">{stat.value}</div>
-                  <div className="text-[11px] text-muted-foreground">{stat.label}</div>
+          <div className="grid lg:grid-cols-5 gap-10 items-start max-w-6xl mx-auto">
+            {/* Director Photo */}
+            <div className="lg:col-span-2 flex flex-col items-center gap-5">
+              <div className="relative group w-full max-w-sm mx-auto">
+                <div className="absolute -inset-2 rounded-3xl bg-linear-to-br from-primary/20 to-(--teal)/20 blur-xl opacity-50 group-hover:opacity-70 transition-opacity duration-700" />
+                <div className="relative overflow-hidden rounded-3xl aspect-[3/4] bg-secondary/40 border border-border/50">
+                  <img
+                    src="/images/director.jpg"
+                    alt="سالم بن أحمد بن عبدالله المسهلي - المدير العام"
+                    className="h-full w-full object-cover object-top"
+                    onError={(e) => {
+                      const target = e.currentTarget
+                      target.style.display = "none"
+                      const fallback = target.nextElementSibling as HTMLElement | null
+                      if (fallback) fallback.style.display = "flex"
+                    }}
+                  />
+                  {/* Fallback avatar */}
+                  <div
+                    className="absolute inset-0 flex-col items-center justify-center bg-linear-to-br from-primary/10 to-(--teal)/10 hidden"
+                    aria-hidden="true"
+                  >
+                    <div className="flex h-24 w-24 items-center justify-center rounded-full bg-primary/15 border border-primary/30 mb-4">
+                      <User className="h-12 w-12 text-primary/60" />
+                    </div>
+                    <p className="text-sm text-muted-foreground">صورة المدير العام</p>
+                  </div>
+                  {/* Overlay gradient */}
+                  <div className="absolute bottom-0 right-0 left-0 h-1/3 bg-linear-to-t from-background/70 to-transparent" />
                 </div>
-              ))}
+              </div>
+
+              {/* Director name card */}
+              <div className="glass-card rounded-2xl px-6 py-4 text-center w-full max-w-sm mx-auto border-t-2 border-t-primary/30">
+                <p className="text-base font-bold text-foreground mb-0.5">سالم بن أحمد بن عبدالله المسهلي</p>
+                <p className="text-xs text-primary font-semibold">المدير العام — معهد دونان للاستشارات والتدريب</p>
+              </div>
+            </div>
+
+            {/* Director Message Text */}
+            <div className="lg:col-span-3">
+              <div className="glass-card rounded-3xl p-8 lg:p-10 relative overflow-hidden h-full">
+                <div className="absolute top-0 left-0 w-36 h-36 bg-linear-to-br from-primary/8 to-transparent rounded-br-full" />
+                <div className="absolute bottom-0 right-0 w-24 h-24 bg-linear-to-tl from-primary/5 to-transparent rounded-tl-full" />
+
+                <div className="relative">
+                  <Quote className="h-8 w-8 text-primary/30 mb-5" />
+
+                  <p className="text-sm text-muted-foreground leading-[2] mb-5">
+                    معهد دونان للاستشارات والتدريب يُعنى بنشر وتعزيز ثقافة القانون الدولي الإنساني، وترسيخ مبادئه في المجتمعات الخليجية، انطلاقًا من الإيمان العميق بضرورة حماية الإنسان وكرامته أثناء النزاعات المسلحة، خصوصًا في ظل ما شهدته منطقتنا العربية خلال العقود الأخيرة من نزاعات مسلحة وصراعات دامية خلّفت آثارًا إنسانية جسيمة، تمثلت في سقوط أعداد كبيرة من الضحايا الأبرياء من المدنيين، ولا سيما النساء والأطفال وكبار السن والعجزة، فضلًا عن حالات النزوح والتشريد والتجويع وانتهاك الكرامة الإنسانية.
+                  </p>
+
+                  <p className="text-sm text-muted-foreground leading-[2] mb-5">
+                    ومن هذا المنطلق، جاء تأسيس معهد دونان استجابة لحاجة ملحّة إلى نشر الوعي بالقانون الدولي الإنساني، وتعزيز احترام قواعده ومبادئه، والمساهمة في الحد من المعاناة الإنسانية عبر التعليم والتدريب وبناء ثقافة إنسانية راسخة في مختلف شرائح المجتمع.
+                  </p>
+
+                  <p className="text-sm text-muted-foreground leading-[2]">
+                    سيعمل المعهد على تقديم البرامج التدريبية والاستشارية وبناء القدرات، بالتعاون مع اللجان الخليجية للقانون الدولي الإنساني والجهات المعنية، مستهدفًا القوات المسلحة، والمؤسسات الأكاديمية، والكوادر التعليمية، ومنظمات المجتمع المدني.
+                  </p>
+
+                  {/* Signature */}
+                  <div className="mt-8 pt-6 border-t border-border/40 flex items-center gap-4">
+                    <div className="h-10 w-1 rounded-full bg-primary/40" />
+                    <div>
+                      <p className="text-sm font-bold text-foreground">سالم بن أحمد بن عبدالله المسهلي</p>
+                      <p className="text-xs text-primary mt-0.5">المدير العام</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
+        </div>
+
+        {/* Mini Stats */}
+        <div className="grid grid-cols-3 gap-4 max-w-lg mx-auto mb-20">
+          {[
+            { value: "+15", label: "سنة خبرة" },
+            { value: "6", label: "دول خليجية" },
+            { value: "+40", label: "شراكة دولية" },
+          ].map((stat, i) => (
+            <div key={i} className="glass-card rounded-2xl p-5 text-center group hover:scale-105 transition-all duration-300">
+              <div className="text-2xl font-extrabold text-primary mb-1 glow-text">{stat.value}</div>
+              <div className="text-[11px] text-muted-foreground">{stat.label}</div>
+            </div>
+          ))}
         </div>
 
         {/* Feature Cards */}
@@ -108,8 +148,7 @@ export default function AboutSection() {
               key={i}
               className="glass-card rounded-2xl p-6 text-center group hover:scale-[1.04] hover:border-primary/30 transition-all duration-500 relative overflow-hidden"
             >
-              {/* Hover glow effect */}
-              <div className="absolute inset-0 bg-gradient-to-b from-primary/0 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-linear-to-b from-primary/0 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="relative">
                 <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 border border-primary/20 group-hover:bg-primary/15 group-hover:border-primary/30 group-hover:scale-110 transition-all duration-300">
                   <f.icon className="h-6 w-6 text-primary" />
