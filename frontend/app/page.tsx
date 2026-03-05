@@ -4,6 +4,7 @@ import RecruitmentBanner from "@/components/recruitment-banner"
 import AboutSection from "@/components/about-section"
 import VisionSection from "@/components/vision-section"
 import GoalsSection from "@/components/goals-section"
+import OrgStructureSection from "@/components/org-structure-section"
 import ServicesSection from "@/components/services-section"
 import ActivitiesSection from "@/components/activities-section"
 import LibrarySection from "@/components/library-section"
@@ -22,6 +23,7 @@ export default function Home() {
       <AboutSection />
       <VisionSection />
       <GoalsSection />
+      <OrgStructureSection />
       <ServicesSection />
       <ActivitiesSection />
       <LibrarySection />

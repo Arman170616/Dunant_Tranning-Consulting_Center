@@ -1,6 +1,6 @@
 "use client"
 
-import { Shield, Heart, Scale, Globe, Quote, User } from "lucide-react"
+import { Shield, Heart, Scale, Globe } from "lucide-react"
 
 const features = [
   {
@@ -25,6 +25,12 @@ const features = [
   },
 ]
 
+const stats = [
+  { value: "+40", label: "شراكة دولية" },
+  { value: "6", label: "دول خليجية" },
+  { value: "+15", label: "سنة خبرة" },
+]
+
 export default function AboutSection() {
   return (
     <section id="about" className="relative py-24 lg:py-32 overflow-hidden">
@@ -44,101 +50,74 @@ export default function AboutSection() {
           </p>
         </div>
 
-        {/* Director General's Message */}
-        <div id="director" className="mb-20">
-          <div className="text-center mb-12">
-            <span className="inline-block text-xs font-bold text-primary mb-3 tracking-[0.2em] uppercase">كلمة المدير العام</span>
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-foreground">
-              Director General&apos;s <span className="text-primary">Message</span>
-            </h3>
-          </div>
+        {/* Director General's Message — full-width card */}
+        <div id="director" className="mb-20 max-w-6xl mx-auto">
+          <div
+            className="relative overflow-hidden rounded-3xl border border-border/30 bg-card flex flex-col lg:flex-row"
+            style={{ minHeight: "560px" }}
+            dir="ltr"
+          >
+            {/* ── Left: Text Content ── */}
+            <div className="flex-1 p-10 lg:p-14 flex flex-col justify-between relative z-10">
+              {/* Title */}
+              <div>
+                <h3 className="text-4xl lg:text-5xl font-extrabold text-primary mb-2 text-right" dir="rtl">
+                  كلمة المدير العام
+                </h3>
+                <p className="text-base lg:text-lg font-bold text-foreground mb-10">
+                  Director General&apos;s <span className="text-primary">Message</span>
+                </p>
 
-          <div className="grid lg:grid-cols-5 gap-10 items-start max-w-6xl mx-auto">
-            {/* Director Photo */}
-            <div className="lg:col-span-2 flex flex-col items-center gap-5">
-              <div className="relative group w-full max-w-sm mx-auto">
-                <div className="absolute -inset-2 rounded-3xl bg-linear-to-br from-primary/20 to-(--teal)/20 blur-xl opacity-50 group-hover:opacity-70 transition-opacity duration-700" />
-                <div className="relative overflow-hidden rounded-3xl aspect-[3/4] bg-secondary/40 border border-border/50">
-                  <img
-                    src="/images/director.jpg"
-                    alt="سالم بن أحمد بن عبدالله المسهلي - المدير العام"
-                    className="h-full w-full object-cover object-top"
-                    onError={(e) => {
-                      const target = e.currentTarget
-                      target.style.display = "none"
-                      const fallback = target.nextElementSibling as HTMLElement | null
-                      if (fallback) fallback.style.display = "flex"
-                    }}
-                  />
-                  {/* Fallback avatar */}
-                  <div
-                    className="absolute inset-0 flex-col items-center justify-center bg-linear-to-br from-primary/10 to-(--teal)/10 hidden"
+                {/* Decorative quote + paragraph */}
+                <div className="relative" dir="ltr">
+                  <span
+                    className="absolute top-0 left-0 text-8xl leading-none select-none font-serif text-primary/20"
                     aria-hidden="true"
-                  >
-                    <div className="flex h-24 w-24 items-center justify-center rounded-full bg-primary/15 border border-primary/30 mb-4">
-                      <User className="h-12 w-12 text-primary/60" />
-                    </div>
-                    <p className="text-sm text-muted-foreground">صورة المدير العام</p>
-                  </div>
-                  {/* Overlay gradient */}
-                  <div className="absolute bottom-0 right-0 left-0 h-1/3 bg-linear-to-t from-background/70 to-transparent" />
-                </div>
-              </div>
-
-              {/* Director name card */}
-              <div className="glass-card rounded-2xl px-6 py-4 text-center w-full max-w-sm mx-auto border-t-2 border-t-primary/30">
-                <p className="text-base font-bold text-foreground mb-0.5">سالم بن أحمد بن عبدالله المسهلي</p>
-                <p className="text-xs text-primary font-semibold">المدير العام — معهد دونان للاستشارات والتدريب</p>
-              </div>
-            </div>
-
-            {/* Director Message Text */}
-            <div className="lg:col-span-3">
-              <div className="glass-card rounded-3xl p-8 lg:p-10 relative overflow-hidden h-full">
-                <div className="absolute top-0 left-0 w-36 h-36 bg-linear-to-br from-primary/8 to-transparent rounded-br-full" />
-                <div className="absolute bottom-0 right-0 w-24 h-24 bg-linear-to-tl from-primary/5 to-transparent rounded-tl-full" />
-
-                <div className="relative">
-                  <Quote className="h-8 w-8 text-primary/30 mb-5" />
-
-                  <p className="text-sm text-muted-foreground leading-[2] mb-5">
+                  >&ldquo;</span>
+                  <p className="text-sm text-muted-foreground leading-loose pl-10" dir="rtl">
                     معهد دونان للاستشارات والتدريب يُعنى بنشر وتعزيز ثقافة القانون الدولي الإنساني، وترسيخ مبادئه في المجتمعات الخليجية، انطلاقًا من الإيمان العميق بضرورة حماية الإنسان وكرامته أثناء النزاعات المسلحة، خصوصًا في ظل ما شهدته منطقتنا العربية خلال العقود الأخيرة من نزاعات مسلحة وصراعات دامية خلّفت آثارًا إنسانية جسيمة، تمثلت في سقوط أعداد كبيرة من الضحايا الأبرياء من المدنيين، ولا سيما النساء والأطفال وكبار السن والعجزة، فضلًا عن حالات النزوح والتشريد والتجويع وانتهاك الكرامة الإنسانية.
                   </p>
+                </div>
+              </div>
 
-                  <p className="text-sm text-muted-foreground leading-[2] mb-5">
-                    ومن هذا المنطلق، جاء تأسيس معهد دونان استجابة لحاجة ملحّة إلى نشر الوعي بالقانون الدولي الإنساني، وتعزيز احترام قواعده ومبادئه، والمساهمة في الحد من المعاناة الإنسانية عبر التعليم والتدريب وبناء ثقافة إنسانية راسخة في مختلف شرائح المجتمع.
-                  </p>
+              {/* Name + Stats at bottom */}
+              <div className="mt-10" dir="rtl">
+                <p className="text-base font-bold text-foreground">سالم بن أحمد بن عبدالله المسهلي</p>
+                <p className="text-sm text-primary font-semibold mb-7">المدير العام</p>
 
-                  <p className="text-sm text-muted-foreground leading-[2]">
-                    سيعمل المعهد على تقديم البرامج التدريبية والاستشارية وبناء القدرات، بالتعاون مع اللجان الخليجية للقانون الدولي الإنساني والجهات المعنية، مستهدفًا القوات المسلحة، والمؤسسات الأكاديمية، والكوادر التعليمية، ومنظمات المجتمع المدني.
-                  </p>
-
-                  {/* Signature */}
-                  <div className="mt-8 pt-6 border-t border-border/40 flex items-center gap-4">
-                    <div className="h-10 w-1 rounded-full bg-primary/40" />
-                    <div>
-                      <p className="text-sm font-bold text-foreground">سالم بن أحمد بن عبدالله المسهلي</p>
-                      <p className="text-xs text-primary mt-0.5">المدير العام</p>
+                <div className="grid grid-cols-3 gap-3">
+                  {stats.map((s, i) => (
+                    <div key={i} className="glass-card rounded-xl p-4 text-center">
+                      <div className="text-2xl font-extrabold text-primary mb-0.5 glow-text">{s.value}</div>
+                      <div className="text-[11px] text-muted-foreground">{s.label}</div>
                     </div>
-                  </div>
+                  ))}
                 </div>
               </div>
             </div>
-          </div>
-        </div>
 
-        {/* Mini Stats */}
-        <div className="grid grid-cols-3 gap-4 max-w-lg mx-auto mb-20">
-          {[
-            { value: "+15", label: "سنة خبرة" },
-            { value: "6", label: "دول خليجية" },
-            { value: "+40", label: "شراكة دولية" },
-          ].map((stat, i) => (
-            <div key={i} className="glass-card rounded-2xl p-5 text-center group hover:scale-105 transition-all duration-300">
-              <div className="text-2xl font-extrabold text-primary mb-1 glow-text">{stat.value}</div>
-              <div className="text-[11px] text-muted-foreground">{stat.label}</div>
+            {/* ── Right: Director Photo ── */}
+            <div className="relative lg:w-[46%] shrink-0" style={{ minHeight: "320px" }}>
+              {/* Dark warm base */}
+              <div className="absolute inset-0 bg-[#0e0a05]" />
+              {/* Warm golden radial spotlight */}
+              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_55%_35%,rgba(150,90,10,0.55)_0%,rgba(90,50,5,0.35)_35%,rgba(30,18,3,0.25)_65%,transparent_85%)]" />
+              {/* Fade toward text */}
+              <div className="absolute inset-y-0 left-0 w-36 bg-linear-to-r from-card to-transparent z-10" />
+              {/* Mobile bottom fade */}
+              <div className="absolute inset-x-0 bottom-0 h-24 bg-linear-to-t from-card to-transparent z-10 lg:hidden" />
+
+              <img
+                src="/director.jpg"
+                alt="سالم بن أحمد بن عبدالله المسهلي - المدير العام"
+                className="absolute inset-0 h-full w-full object-cover object-[center_15%]"
+                onError={(e) => {
+                  const target = e.currentTarget
+                  target.parentElement!.style.display = "none"
+                }}
+              />
             </div>
-          ))}
+          </div>
         </div>
 
         {/* Feature Cards */}

@@ -133,7 +133,7 @@ export default function MediaSection() {
                 rel="noopener noreferrer"
                 className="glass-card rounded-2xl overflow-hidden group cursor-pointer hover:scale-[1.03] hover:border-primary/30 transition-all duration-500"
               >
-                <div className="relative aspect-[4/3] bg-secondary/30">
+                <div className="relative aspect-4/3 bg-secondary/30">
                   {item.file_url ? (
                     <img src={item.file_url} alt={item.title} className="absolute inset-0 h-full w-full object-cover" />
                   ) : (

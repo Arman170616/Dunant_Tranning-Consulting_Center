@@ -30,14 +30,14 @@ export default function HeroSection() {
           className="h-full w-full object-cover scale-110"
           crossOrigin="anonymous"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/70 to-background" />
+        <div className="absolute inset-0 bg-linear-to-b from-background/90 via-background/70 to-background" />
         <div className="absolute inset-0 geometric-pattern opacity-20" />
       </div>
 
       {/* Animated orbs */}
       <div className="absolute top-1/4 right-1/6 w-80 h-80 rounded-full bg-primary/8 blur-[100px] animate-float-slow" />
-      <div className="absolute bottom-1/3 left-1/5 w-96 h-96 rounded-full bg-[var(--teal)]/6 blur-[120px] animate-float" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary/3 blur-[150px] animate-pulse-glow" />
+      <div className="absolute bottom-1/3 left-1/5 w-96 h-96 rounded-full bg-(--teal)/6 blur-[120px] animate-float" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 rounded-full bg-primary/3 blur-[150px] animate-pulse-glow" />
 
       {/* Content */}
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center py-20">
@@ -92,7 +92,7 @@ export default function HeroSection() {
               className="group relative overflow-hidden px-10 py-4.5 rounded-2xl bg-primary text-primary-foreground font-bold text-base transition-all duration-300 hover:shadow-[0_0_50px_oklch(0.78_0.15_75/0.35)]"
             >
               <span className="relative z-10">خدماتنا</span>
-              <div className="absolute inset-0 bg-gradient-to-l from-[var(--gold-light)] to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-linear-to-l from-(--gold-light) to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </a>
             <a
               href="#about"
