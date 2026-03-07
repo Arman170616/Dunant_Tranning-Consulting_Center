@@ -6,13 +6,13 @@ from rest_framework.response import Response
 from .models import (
     TrainerRegistration, ContactMessage,
     NewsItem, Activity, MediaItem, LibraryItem,
-    Lecture, TrainingCourse, TrainerProfile,
+    Lecture, TrainingCourse, TrainerProfile, CourseRegistration,
 )
 from .serializers import (
     TrainerRegistrationSerializer, ContactMessageSerializer,
     NewsItemSerializer, ActivitySerializer, MediaItemSerializer,
     LibraryItemSerializer, LectureSerializer, TrainingCourseSerializer,
-    TrainerProfileSerializer,
+    TrainerProfileSerializer, CourseRegistrationSerializer,
 )
 
 
@@ -173,3 +173,15 @@ class StatsView(APIView):
             'books': LibraryItem.objects.filter(is_active=True, type='book').count(),
             'research': LibraryItem.objects.filter(is_active=True, type='research').count(),
         })
+
+
+class CourseRegistrationView(APIView):
+    def post(self, request):
+        serializer = CourseRegistrationSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(
+                {'message': 'تم التسجيل في الدورة بنجاح', 'data': serializer.data},
+                status=status.HTTP_201_CREATED
+            )
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

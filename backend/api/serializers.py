@@ -2,7 +2,7 @@ from rest_framework import serializers
 from .models import (
     TrainerRegistration, ContactMessage,
     NewsItem, Activity, MediaItem, LibraryItem,
-    Lecture, TrainingCourse, TrainerProfile,
+    Lecture, TrainingCourse, TrainerProfile, CourseRegistration,
 )
 
 
@@ -61,7 +61,7 @@ class LectureSerializer(serializers.ModelSerializer):
 class TrainingCourseSerializer(serializers.ModelSerializer):
     class Meta:
         model = TrainingCourse
-        fields = ['id', 'title', 'description', 'duration']
+        fields = ['id', 'title', 'description', 'duration', 'level', 'topics', 'sessions_count']
 
 
 class TrainerProfileSerializer(serializers.ModelSerializer):
@@ -73,6 +73,13 @@ class TrainerProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = TrainerProfile
         fields = ['id', 'name', 'title', 'specialization', 'photo_url', 'bio', 'order']
+
+
+class CourseRegistrationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CourseRegistration
+        fields = ['id', 'course', 'full_name', 'email', 'phone', 'employer', 'created_at']
+        read_only_fields = ['id', 'created_at']
 
 
 class TrainerRegistrationSerializer(serializers.ModelSerializer):

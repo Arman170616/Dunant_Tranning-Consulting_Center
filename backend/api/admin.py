@@ -2,7 +2,7 @@ from django.contrib import admin
 from .models import (
     TrainerRegistration, ContactMessage,
     NewsItem, Activity, MediaItem, LibraryItem,
-    Lecture, TrainingCourse, TrainerProfile,
+    Lecture, TrainingCourse, TrainerProfile, CourseRegistration,
 )
 
 
@@ -49,8 +49,8 @@ class LectureAdmin(admin.ModelAdmin):
 
 @admin.register(TrainingCourse)
 class TrainingCourseAdmin(admin.ModelAdmin):
-    list_display = ['title', 'duration', 'is_active', 'created_at']
-    list_filter = ['is_active']
+    list_display = ['title', 'duration', 'level', 'sessions_count', 'is_active', 'created_at']
+    list_filter = ['is_active', 'level']
     search_fields = ['title', 'description']
     list_editable = ['is_active']
 
@@ -75,3 +75,10 @@ class ContactMessageAdmin(admin.ModelAdmin):
     list_display = ['full_name', 'email', 'subject', 'created_at']
     list_filter = ['created_at']
     search_fields = ['full_name', 'email', 'subject']
+
+
+@admin.register(CourseRegistration)
+class CourseRegistrationAdmin(admin.ModelAdmin):
+    list_display = ['full_name', 'email', 'phone', 'course', 'employer', 'created_at']
+    list_filter = ['course', 'created_at']
+    search_fields = ['full_name', 'email', 'phone']

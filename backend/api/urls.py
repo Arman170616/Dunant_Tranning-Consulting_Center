@@ -3,6 +3,7 @@ from .views import (
     TrainerRegistrationView, ContactMessageView,
     NewsListView, ActivityListView, MediaItemListView, LibraryItemListView,
     LectureListView, TrainingCourseListView, TrainerProfileListView, StatsView,
+    CourseRegistrationView,
 )
 
 urlpatterns = [
@@ -19,4 +20,5 @@ urlpatterns = [
     path('courses/', TrainingCourseListView.as_view(), name='course-list'),
     path('trainers/', TrainerProfileListView.as_view(), name='trainer-list'),
     path('stats/', StatsView.as_view(), name='stats'),
+    path('course-registrations/', CourseRegistrationView.as_view(), name='course-registration'),
 ]

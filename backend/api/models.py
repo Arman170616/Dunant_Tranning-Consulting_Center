@@ -98,9 +98,18 @@ class Lecture(models.Model):
 
 
 class TrainingCourse(models.Model):
+    LEVEL_CHOICES = [
+        ('junior', 'مبتدئ'),
+        ('medium', 'متوسط'),
+        ('advanced', 'متقدم'),
+    ]
+
     title = models.CharField(max_length=255)
     description = models.TextField(blank=True)
     duration = models.CharField(max_length=100, blank=True, help_text='مثال: 3 أيام')
+    level = models.CharField(max_length=20, choices=LEVEL_CHOICES, default='medium')
+    topics = models.JSONField(default=list, help_text='المحاور الرئيسية')
+    sessions_count = models.PositiveIntegerField(default=0)
     is_active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
@@ -111,6 +120,23 @@ class TrainingCourse(models.Model):
         ordering = ['-created_at']
         verbose_name = 'دورة تدريبية'
         verbose_name_plural = 'الدورات التدريبية'
+
+
+class CourseRegistration(models.Model):
+    course = models.ForeignKey(TrainingCourse, on_delete=models.CASCADE, related_name='registrations')
+    full_name = models.CharField(max_length=255)
+    email = models.EmailField()
+    phone = models.CharField(max_length=20)
+    employer = models.CharField(max_length=255, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.full_name} — {self.course.title}"
+
+    class Meta:
+        ordering = ['-created_at']
+        verbose_name = 'تسجيل دورة'
+        verbose_name_plural = 'تسجيلات الدورات'
 
 
 class TrainerProfile(models.Model):
