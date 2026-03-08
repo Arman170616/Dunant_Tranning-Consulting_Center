@@ -190,71 +190,108 @@ export default function ActivitiesSection() {
           />
 
           {/* Modal Card */}
-          <div className="relative w-full max-w-lg sm:max-w-xl bg-card border border-border/40 rounded-3xl shadow-2xl z-10 overflow-hidden animate-in fade-in zoom-in-95 duration-200">
-            {/* Image or accent line */}
+          <div className="relative w-full max-w-3xl lg:max-w-4xl bg-card border border-border/40 rounded-3xl shadow-2xl z-10 overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+
+            {/* ── Header ── */}
             {selected.image_url ? (
-              <div className="relative h-52 w-full overflow-hidden">
+              <div className="relative h-64 sm:h-80 lg:h-96 w-full overflow-hidden">
                 <img
                   src={selected.image_url}
                   alt={selected.title}
                   className="h-full w-full object-cover"
                 />
-                <div className="absolute inset-0 bg-linear-to-t from-card/70 to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/30 to-transparent" />
+                {/* Tag over image */}
+                <div className="absolute top-5 right-5">
+                  <span className={`inline-block px-3 py-1 rounded-full text-xs font-semibold border ${
+                    selected.tag_color === "teal"
+                      ? "bg-(--teal)/20 text-(--teal) border-(--teal)/30"
+                      : "bg-primary/20 text-primary border-primary/30"
+                  }`}>
+                    {selected.tag}
+                  </span>
+                </div>
+                {/* Title over image */}
+                <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <h3 className="text-xl sm:text-2xl font-extrabold text-white leading-snug">
+                    {selected.title}
+                  </h3>
+                </div>
               </div>
             ) : (
-              <div className={`h-1 w-full ${
+              <div className={`relative px-7 pt-8 pb-6 ${
                 selected.tag_color === "teal"
-                  ? "bg-linear-to-l from-transparent via-(--teal)/60 to-transparent"
-                  : "bg-linear-to-l from-transparent via-primary/60 to-transparent"
-              }`} />
-            )}
-
-            <div className="p-6 sm:p-8">
-              {/* Close button */}
-              <button
-                onClick={close}
-                className="absolute top-5 left-5 flex h-8 w-8 items-center justify-center rounded-full bg-secondary/60 hover:bg-secondary text-muted-foreground hover:text-foreground transition-colors"
-                aria-label="إغلاق"
-              >
-                <X className="h-4 w-4" />
-              </button>
-
-              {/* Tag */}
-              <div className="mb-4">
-                <span className={`inline-block px-3 py-1 rounded-full text-xs font-semibold border ${
+                  ? "bg-linear-to-br from-(--teal)/15 via-(--teal)/5 to-transparent"
+                  : "bg-linear-to-br from-primary/15 via-primary/5 to-transparent"
+              }`}>
+                <div className={`absolute top-0 left-0 right-0 h-1 ${
+                  selected.tag_color === "teal"
+                    ? "bg-linear-to-l from-transparent via-(--teal)/60 to-transparent"
+                    : "bg-linear-to-l from-transparent via-primary/60 to-transparent"
+                }`} />
+                <span className={`inline-block px-3 py-1 rounded-full text-xs font-semibold border mb-3 ${
                   selected.tag_color === "teal"
                     ? "bg-(--teal)/10 text-(--teal) border-(--teal)/20"
                     : "bg-primary/10 text-primary border-primary/20"
                 }`}>
                   {selected.tag}
                 </span>
+                <h3 className="text-xl sm:text-2xl font-extrabold text-foreground leading-snug">
+                  {selected.title}
+                </h3>
               </div>
+            )}
 
-              {/* Title */}
-              <h3 className="text-xl sm:text-2xl font-extrabold text-foreground mb-4 leading-snug">
-                {selected.title}
-              </h3>
+            {/* ── Body ── */}
+            <div className="p-6 sm:p-8 lg:p-10">
 
-              {/* Meta */}
-              <div className="flex flex-wrap gap-4 text-sm text-muted-foreground mb-6">
+              {/* Meta row */}
+              <div className="flex flex-wrap gap-5 text-sm text-muted-foreground mb-6">
                 <span className="flex items-center gap-2">
-                  <Calendar className="h-4 w-4 text-primary shrink-0" />
-                  {formatDate(selected.date)}
+                  <span className={`flex h-8 w-8 items-center justify-center rounded-full ${
+                    selected.tag_color === "teal" ? "bg-(--teal)/10" : "bg-primary/10"
+                  }`}>
+                    <Calendar className={`h-4 w-4 ${selected.tag_color === "teal" ? "text-(--teal)" : "text-primary"}`} />
+                  </span>
+                  <span className="font-medium text-foreground">{formatDate(selected.date)}</span>
                 </span>
                 <span className="flex items-center gap-2">
-                  <MapPin className="h-4 w-4 text-primary shrink-0" />
-                  {selected.location}
+                  <span className={`flex h-8 w-8 items-center justify-center rounded-full ${
+                    selected.tag_color === "teal" ? "bg-(--teal)/10" : "bg-primary/10"
+                  }`}>
+                    <MapPin className={`h-4 w-4 ${selected.tag_color === "teal" ? "text-(--teal)" : "text-primary"}`} />
+                  </span>
+                  <span className="font-medium text-foreground">{selected.location}</span>
                 </span>
               </div>
 
               {/* Divider */}
-              <div className="h-px bg-border/40 mb-6" />
+              <div className="h-px bg-border/40 mb-5" />
 
               {/* Description */}
               <p className="text-sm text-muted-foreground leading-loose">
                 {selected.description}
               </p>
+
+              {/* Footer close */}
+              <div className="mt-8 flex justify-end">
+                <button
+                  onClick={close}
+                  className="px-6 py-2.5 rounded-xl text-sm font-semibold border border-border/60 text-muted-foreground hover:text-foreground hover:border-border transition-colors"
+                >
+                  إغلاق
+                </button>
+              </div>
             </div>
+
+            {/* Close X button */}
+            <button
+              onClick={close}
+              className="absolute top-4 left-4 flex h-8 w-8 items-center justify-center rounded-full bg-black/30 hover:bg-black/50 text-white transition-colors"
+              aria-label="إغلاق"
+            >
+              <X className="h-4 w-4" />
+            </button>
           </div>
         </div>
       )}

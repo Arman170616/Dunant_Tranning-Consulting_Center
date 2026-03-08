@@ -230,7 +230,7 @@ export default function ServicesClient() {
                       </div>
                     </div>
 
-                    <div className={`overflow-hidden transition-all duration-500 ${isOpen ? "max-h-[600px]" : "max-h-0"}`}>
+                    <div className={`overflow-hidden transition-all duration-500 ${isOpen ? "max-h-150" : "max-h-0"}`}>
                       <div className="grid sm:grid-cols-2 gap-3 mb-4">
                         {lecture.topics.map((topic, ti) => (
                           <div key={ti} className="flex items-start gap-3 glass rounded-xl px-4 py-3">
